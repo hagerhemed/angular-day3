@@ -1,0 +1,40 @@
+ <!-- <h1>Total order price: {{totalOrderPrice}}</h1> -->
+ <!-- <h2>Slected Cat is : {{selectedCatId}}</h2> -->
+<!-- <div class="mb-3">
+  <label for="" class="form-label"></label>
+  <select class="form-select form-select-lg" id="" name="" [(ngModel)]="selectedCatId" (change)="filterProducts()">
+    <option selected value="0">All</option>
+    <option *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</option>
+  </select>
+</div> -->
+<!-- <button (click)="change()">Change Category</button> -->
+ <div class="row row-cols-1 row-cols-md-4 g-4">
+  <!-- <div class="col"  [class.d-none]="prd.catId!=selectedCatId" *ngIf="prd.quantity!=0"> -->
+    @for(prd of filteredProducts;track prd.id; let i=$index){
+    <div class="col" >
+    <div class="card"  appProductCard="gray" bgColor="pink">
+      <img [src]="prd.imgUrl" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{i+1}} {{ prd.name }}</h5>
+        <p class="card-text">price: {{prd.price}}</p>
+        <p class="card-text" >Quantity: {{prd.quantity}}</p>
+        <!-- <ng-template #lastItem><p>Quantity: Last Item</p></ng-template>  -->
+        <!-- <div [ngSwitch]="prd.quantity">
+          <p *ngSwitchCase="1">Quantity: Last Item</p>
+          <p *ngSwitchCase="3">Quantity: Last  Three Item</p>
+          <p *ngSwitchDefault="">Quantity: {{quantityDecrease}}</p>
+        </div> -->
+        <input type="number" #countInp>
+        <button class="btn btn-success" (click)="buy(countInp.value, prd.price)">Buy</button>
+        <!-- <button class="btn btn-success" (click)="decreaseQuantity(prd)">Buy</button> -->
+      </div>
+    </div>
+  </div>
+}
+</div>
+
+<!-- <p>{{ '29909011509345' | egyptianNationalId:'FullDate' }}</p> -->
+
+
+<!-- [ngStyle]="{border:(prd.quantity==1)?'1px solid red':'1px solid green'}" -->
+<!-- *ngFor="let prd of products; let i=index; trackBy:trackItem" -->
